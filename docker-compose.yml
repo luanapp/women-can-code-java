@@ -1,0 +1,31 @@
+version: "3.3"
+
+services: 
+  mongo:
+    image: mongo
+    restart: always
+    ports: 
+      - 29017:27017
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: root
+    #   MONGO_INITDB_ROOT_PASSWORD: example
+    networks: 
+      - default-network
+
+  wcc-backend:
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATA_MONGODB_HOST: mongo
+      SPRING_DATA_MONGODB_PORT: 27017
+      # SPRING_DATA_MONGODB_USERNAME: root
+      # SPRING_DATA_MONGODB_PASSWORD: example
+    depends_on: 
+      - mongo
+    networks: 
+      - default-network
+
+networks: 
+  default-network:
+    driver: bridge
