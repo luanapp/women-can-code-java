@@ -4,7 +4,7 @@ import com.womencancode.rbac.model.Role;
 import com.womencancode.rbac.model.User;
 import com.womencancode.rbac.repository.RoleRepository;
 import com.womencancode.rbac.repository.UserRepository;
-import com.womencancode.rbac.service.BaseModel;
+import com.womencancode.rbac.model.BaseModel;
 import org.springframework.data.repository.CrudRepository;
 
 public class ValidatorFactory {

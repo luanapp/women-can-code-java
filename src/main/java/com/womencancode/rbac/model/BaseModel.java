@@ -1,4 +1,4 @@
-package com.womencancode.rbac.service;
+package com.womencancode.rbac.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
