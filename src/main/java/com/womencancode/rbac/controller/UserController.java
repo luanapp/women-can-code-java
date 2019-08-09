@@ -21,35 +21,35 @@ import java.util.List;
 import java.util.stream.Stream;
 
 @RestController
-@RequestMapping(path = "/user", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/user")
 public class UserController {
 
     @Autowired
     UserService service;
 
-    @PostMapping
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> insertUser(@RequestBody User user) throws Exception {
         return ResponseEntity.ok(service.insertUser(user));
     }
 
-    @PostMapping("/bulk")
+    @PostMapping(path = "/bulk", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<User>> insertUsers(@RequestBody List<User> users) throws Exception {
         return ResponseEntity.ok(service.insertUser(users));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> updateUser(@RequestBody User user, @PathVariable String id) throws Exception {
         user.setId(id);
         return ResponseEntity.ok(service.updateUser(user));
     }
 
-    @GetMapping
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Stream<User>> getAll(@SortDefault.SortDefaults(
             {@SortDefault(sort = "name", direction = Sort.Direction.ASC)}) Pageable pageable) {
         return ResponseEntity.ok(service.findAll(pageable).get());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> getById(@PathVariable String id) throws Exception {
         return ResponseEntity.ok(service.findById(id));
     }

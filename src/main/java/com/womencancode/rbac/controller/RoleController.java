@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/role", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/role")
 public class RoleController {
 
     private RoleService service;
@@ -24,17 +24,17 @@ public class RoleController {
         this.service = service;
     }
 
-    @PostMapping
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Role> insertRole(@RequestBody Role role) throws Exception {
         return ResponseEntity.ok(service.insertRole(role));
     }
 
-    @GetMapping
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Role>> getAll() {
         return ResponseEntity.ok(service.findAll());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Role> getById(@PathVariable String id) throws Exception {
         return ResponseEntity.ok(service.findById(id));
     }

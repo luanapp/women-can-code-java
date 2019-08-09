@@ -1,7 +1,6 @@
 package com.womencancode.rbac.model;
 
 import com.mongodb.lang.NonNull;
-import com.womencancode.rbac.service.BaseModel;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

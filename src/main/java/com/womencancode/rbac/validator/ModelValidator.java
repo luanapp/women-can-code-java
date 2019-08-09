@@ -3,7 +3,7 @@ package com.womencancode.rbac.validator;
 import com.womencancode.rbac.exception.EntityNotFoundException;
 import com.womencancode.rbac.exception.InvalidFieldException;
 import com.womencancode.rbac.exception.ServiceException;
-import com.womencancode.rbac.service.BaseModel;
+import com.womencancode.rbac.model.BaseModel;
 import lombok.Getter;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.util.StringUtils;
