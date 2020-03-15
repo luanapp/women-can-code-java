@@ -47,7 +47,7 @@ Another way of doing that, without the need of running the previous steps is by 
 mvn clean spring-boot:run
 ```
 ## License
-Distributed under GPLv3 license. See [License]([license-link]) for more information.
+Distributed under GPLv3 license. See [License](LICENSE) for more information.
 
 [build-shield]: https://travis-ci.org/luanapp/women-can-code-java.svg?branch=master
 [build-url]: https://travis-ci.org/luanapp/women-can-code-java
