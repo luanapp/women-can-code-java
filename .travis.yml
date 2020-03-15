@@ -16,9 +16,8 @@ cache:
   - "$HOME/.m2"
 
 jdk:
-  - oraclejdk8
-  - oraclejdk9
   - openjdk8
+  - openjdk11
 
 env:
   - DOCKER_COMPOSE_VERSION=1.24.0
